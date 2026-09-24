@@ -30,6 +30,8 @@
         <li><a href="#roles">Roles</a></li>
         <li><a href="#programs">Programs</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#lectures">Lectures</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#teaching">Teaching</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -198,6 +200,27 @@
       </div>
     </section>
 
+    <!-- ===== Lectures & Talks ===== -->
+    <!-- Lectures are listed in events.js; edit that file to add new ones. -->
+    <section id="lectures" class="section">
+      <div class="container">
+        <h2 class="reveal">Lectures &amp; Talks</h2>
+        <ol class="talks" id="lectures-list"></ol>
+      </div>
+    </section>
+
+    <!-- ===== Events ===== -->
+    <!-- Events are listed in events.js; edit that file to add new ones. -->
+    <section id="events" class="section section-alt">
+      <div class="container">
+        <h2 class="reveal">Events</h2>
+        <h3 class="subhead events-head reveal">Upcoming</h3>
+        <div class="events" id="events-upcoming"></div>
+        <h3 class="subhead events-head reveal">Past</h3>
+        <div class="events" id="events-past"></div>
+      </div>
+    </section>
+
     <!-- ===== Teaching & Education ===== -->
     <section id="teaching" class="section">
       <div class="container narrow reveal">
@@ -254,6 +277,7 @@
     </div>
   </footer>
 
+  <script src="events.js"></script>
   <script>
     (function () {
       document.getElementById('year').textContent = new Date().getFullYear();
@@ -275,6 +299,70 @@
       header.querySelectorAll('.nav-links a').forEach(function (a) {
         a.addEventListener('click', function () { setMenu(false); });
       });
+
+      // Lectures & Events: built from the data in events.js
+      var data = window.SITE_DATA || { lectures: [], events: [] };
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text) n.textContent = text;
+        return n;
+      }
+      function parseDate(s) {
+        var p = String(s).split('-');
+        return new Date(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
+      }
+      function fmt(d, opts) { return d.toLocaleDateString('en-GB', opts); }
+      function linkBtn(href, label) {
+        var a = el('a', 'item-link', label);
+        a.href = href; a.target = '_blank'; a.rel = 'noopener';
+        return a;
+      }
+      function byDate(dir) {
+        return function (a, b) { return dir * (parseDate(a.date) - parseDate(b.date)); };
+      }
+
+      var talks = document.getElementById('lectures-list');
+      (data.lectures || []).slice().sort(byDate(-1)).forEach(function (t) {
+        var d = parseDate(t.date);
+        var li = el('li', 'talk reveal');
+        var when = el('p', 'talk-date');
+        when.appendChild(el('span', 'talk-month', fmt(d, { month: 'short' })));
+        when.appendChild(el('span', 'talk-year', String(d.getFullYear())));
+        var body = el('div', 'talk-body');
+        body.appendChild(el('h3', 'talk-title', t.title));
+        body.appendChild(el('p', 'talk-meta', [t.event, t.city, fmt(d, { day: 'numeric', month: 'long', year: 'numeric' })].filter(Boolean).join('  ·  ')));
+        li.appendChild(when);
+        li.appendChild(body);
+        if (t.link) li.appendChild(linkBtn(t.link, t.linkLabel || 'Link'));
+        talks.appendChild(li);
+      });
+      if (!talks.children.length) talks.appendChild(el('li', 'empty-note', 'New lectures will be listed here soon.'));
+
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      var events = data.events || [];
+      function renderEvents(list, target, emptyText) {
+        list.forEach(function (e) {
+          var d = parseDate(e.date);
+          var card = el('article', 'event-card reveal');
+          var when = el('div', 'event-date');
+          when.appendChild(el('span', 'event-day', String(d.getDate())));
+          when.appendChild(el('span', 'event-month', fmt(d, { month: 'short', year: 'numeric' })));
+          var body = el('div', 'event-body');
+          body.appendChild(el('p', 'event-where', e.location));
+          body.appendChild(el('h4', 'event-title', e.title));
+          if (e.description) body.appendChild(el('p', 'event-desc', e.description));
+          if (e.registerLink) body.appendChild(linkBtn(e.registerLink, 'Register'));
+          card.appendChild(when);
+          card.appendChild(body);
+          target.appendChild(card);
+        });
+        if (!list.length) target.appendChild(el('p', 'empty-note', emptyText));
+      }
+      renderEvents(events.filter(function (e) { return parseDate(e.date) >= today; }).sort(byDate(1)),
+        document.getElementById('events-upcoming'), 'No upcoming events at the moment.');
+      renderEvents(events.filter(function (e) { return parseDate(e.date) < today; }).sort(byDate(-1)),
+        document.getElementById('events-past'), 'Past events will be listed here.');
 
       // Fade-in on scroll (skipped when the visitor prefers reduced motion)
       var items = document.querySelectorAll('.reveal');
