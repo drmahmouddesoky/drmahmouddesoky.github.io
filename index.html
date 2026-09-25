@@ -8,19 +8,30 @@
   <meta property="og:title" content="Dr. Mahmoud Desoky, Consultant Internist &amp; Hepatologist">
   <meta property="og:description" content="Clinical hepatology, medical education and research in metabolic liver disease.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0f2a47">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-  <header class="site-header">
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <header class="site-header" id="site-header">
     <nav class="nav container" aria-label="Main">
       <a class="nav-brand" href="#top">Dr. Mahmoud Desoky</a>
-      <ul class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#roles">Roles</a></li>
         <li><a href="#programs">Programs</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#lectures">Lectures</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#teaching">Teaching</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -31,28 +42,54 @@
 
     <!-- ===== Hero ===== -->
     <section class="hero">
+      <div class="hero-lines" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <div class="hero-photo">
-          <!-- Put your photo at images/profile.jpg (square, about 600×600 px). Until then, initials are shown. -->
-          <img src="images/profile.jpg" alt="Portrait of Dr. Mahmoud Desoky" width="220" height="220"
-               onerror="this.parentElement.classList.add('no-photo'); this.remove();">
-          <span class="photo-fallback" aria-hidden="true">MD</span>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo">
+            <!-- Put your photo at images/profile.jpg (square, about 600×600 px). Until then, initials are shown. -->
+            <img src="images/profile.jpg" alt="Portrait of Dr. Mahmoud Desoky" width="240" height="240"
+                 onerror="this.parentElement.classList.add('no-photo'); this.remove();">
+            <span class="photo-fallback" aria-hidden="true">MD</span>
+          </div>
         </div>
         <div class="hero-text">
+          <p class="eyebrow">Consultant Internist &amp; Hepatologist</p>
           <h1>Dr. Mahmoud Desoky</h1>
-          <p class="hero-title">Consultant Internist &amp; Hepatologist</p>
+          <span class="gold-rule" aria-hidden="true"></span>
           <p class="hero-tagline">Caring for patients with liver disease, teaching the next generation of physicians, and researching metabolic liver health.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://orcid.org/0000-0002-1422-0886" target="_blank" rel="noopener">ORCID profile</a>
-            <a class="btn btn-outline" href="https://www.linkedin.com/in/drmahmoudaldesoky" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-gold" href="https://orcid.org/0000-0002-1422-0886" target="_blank" rel="noopener">ORCID profile</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/drmahmoudaldesoky" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ===== Highlights ===== -->
+    <section class="highlights" aria-label="Highlights">
+      <ul class="container highlights-list">
+        <li>
+          <span class="hl-label">Consultant Internist &amp; Hepatologist</span>
+          <span class="hl-sub">SBAHC, Riyadh</span>
+        </li>
+        <li>
+          <span class="hl-label">Adjunct Assistant Professor</span>
+          <span class="hl-sub">Alfaisal University</span>
+        </li>
+        <li>
+          <span class="hl-label">Tele-Hepatology Initiative</span>
+          <span class="hl-sub">Lead</span>
+        </li>
+        <li>
+          <span class="hl-label">Lipo-Metabolic Liver Academy</span>
+          <span class="hl-sub">Director</span>
+        </li>
+      </ul>
+    </section>
+
     <!-- ===== About ===== -->
     <section id="about" class="section">
-      <div class="container narrow">
+      <div class="container narrow reveal">
         <h2>About</h2>
         <p>I am a Consultant Internist and Hepatologist at Sultan Bin Abdulaziz Humanitarian City (SBAHC) in Riyadh, Saudi Arabia, and an Adjunct Assistant Professor at the College of Medicine, Alfaisal University. I was previously an Assistant Professor at Minia University, Egypt.</p>
         <p>My clinical and academic work centres on metabolic dysfunction-associated steatotic liver disease (MASLD) and the wider field of metabolic liver disease. I lead the Tele-Hepatology Initiative at SBAHC, direct the Lipo-Metabolic Liver Academy, and am a certified Clinical Trial Principal Investigator with the Saudi Commission for Health Specialties (SCFHS).</p>
@@ -61,38 +98,54 @@
 
     <!-- ===== Current Roles ===== -->
     <section id="roles" class="section section-alt">
-      <div class="container">
-        <h2>Current Roles</h2>
-        <div class="cards">
-          <article class="card">
+      <div class="container narrow">
+        <h2 class="reveal">Current Roles</h2>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
             <h3>Consultant Internist &amp; Hepatologist</h3>
             <p class="card-org">Sultan Bin Abdulaziz Humanitarian City (SBAHC), Riyadh</p>
-          </article>
-          <article class="card">
+          </li>
+          <li class="timeline-item reveal">
             <h3>Adjunct Assistant Professor</h3>
             <p class="card-org">College of Medicine, Alfaisal University</p>
-          </article>
-          <article class="card">
+          </li>
+          <li class="timeline-item reveal">
             <h3>Certified Clinical Trial Principal Investigator</h3>
             <p class="card-org">Saudi Commission for Health Specialties (SCFHS)</p>
-          </article>
-        </div>
-        <p class="previous"><strong>Previously:</strong> Assistant Professor, Minia University, Egypt</p>
+          </li>
+          <li class="timeline-item timeline-past reveal">
+            <p class="previous"><strong>Previously:</strong> Assistant Professor, Minia University, Egypt</p>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- ===== Programs & Initiatives ===== -->
     <section id="programs" class="section">
       <div class="container">
-        <h2>Programs &amp; Initiatives</h2>
+        <h2 class="reveal">Programs &amp; Initiatives</h2>
         <div class="cards">
-          <article class="card card-accent">
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="3.5" width="19" height="13" rx="1.5"/>
+                <path d="M8 20.5h8M12 16.5v4"/>
+                <path d="M5.5 10h3l1.5-3 2.5 6 1.5-3h4.5"/>
+              </svg>
+            </span>
             <p class="card-role">Lead</p>
             <h3>Tele-Hepatology Initiative</h3>
             <p class="card-org">SBAHC</p>
             <p>Bringing specialist liver care to patients through remote consultation and follow-up.</p>
           </article>
-          <article class="card card-accent">
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 9l10-5 10 5-10 5z"/>
+                <path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/>
+                <path d="M22 9v5.5"/>
+              </svg>
+            </span>
             <p class="card-role">Director</p>
             <h3>Lipo-Metabolic Liver Academy</h3>
             <p class="card-org">Continuing Medical Education (CME) platform</p>
@@ -105,24 +158,26 @@
     <!-- ===== Research & Publications ===== -->
     <section id="research" class="section section-alt">
       <div class="container">
-        <h2>Research &amp; Publications</h2>
-        <p class="lead">Research interests:</p>
-        <ul class="tags">
-          <li>MASLD</li>
-          <li>Metabolic liver disease</li>
-          <li>AI in hepatology</li>
-        </ul>
+        <div class="reveal">
+          <h2>Research &amp; Publications</h2>
+          <p class="lead">Research interests:</p>
+          <ul class="tags">
+            <li>MASLD</li>
+            <li>Metabolic liver disease</li>
+            <li>AI in hepatology</li>
+          </ul>
 
-        <p>The complete, up-to-date list of my publications is on
-          <a href="https://orcid.org/0000-0002-1422-0886" target="_blank" rel="noopener">ORCID (0000-0002-1422-0886)</a>.</p>
+          <p>The complete, up-to-date list of my publications is on
+            <a href="https://orcid.org/0000-0002-1422-0886" target="_blank" rel="noopener">ORCID (0000-0002-1422-0886)</a>.</p>
+        </div>
 
-        <h3 class="subhead">Selected publications</h3>
+        <h3 class="subhead reveal">Selected publications</h3>
         <!--
           HOW TO ADD A PUBLICATION
           Copy one <li> block below, paste it, and replace the text.
           Delete the placeholder items when you add your real ones.
         -->
-        <ol class="pubs">
+        <ol class="pubs reveal">
           <li>
             <span class="pub-authors">Author A, Desoky M, Author C.</span>
             <span class="pub-title">[Publication title goes here].</span>
@@ -145,9 +200,30 @@
       </div>
     </section>
 
+    <!-- ===== Lectures & Talks ===== -->
+    <!-- Lectures are listed in events.js; edit that file to add new ones. -->
+    <section id="lectures" class="section">
+      <div class="container">
+        <h2 class="reveal">Lectures &amp; Talks</h2>
+        <ol class="talks" id="lectures-list"></ol>
+      </div>
+    </section>
+
+    <!-- ===== Events ===== -->
+    <!-- Events are listed in events.js; edit that file to add new ones. -->
+    <section id="events" class="section section-alt">
+      <div class="container">
+        <h2 class="reveal">Events</h2>
+        <h3 class="subhead events-head reveal">Upcoming</h3>
+        <div class="events" id="events-upcoming"></div>
+        <h3 class="subhead events-head reveal">Past</h3>
+        <div class="events" id="events-past"></div>
+      </div>
+    </section>
+
     <!-- ===== Teaching & Education ===== -->
     <section id="teaching" class="section">
-      <div class="container">
+      <div class="container narrow reveal">
         <h2>Teaching &amp; Education</h2>
         <ul class="list">
           <li><strong>Alfaisal University, College of Medicine</strong>: Adjunct Assistant Professor, teaching medical students.</li>
@@ -159,7 +235,7 @@
 
     <!-- ===== Memberships ===== -->
     <section id="memberships" class="section section-alt">
-      <div class="container">
+      <div class="container reveal">
         <h2>Memberships</h2>
         <ul class="members">
           <li>SLMENA</li>
@@ -171,7 +247,7 @@
 
     <!-- ===== Contact ===== -->
     <section id="contact" class="section contact">
-      <div class="container narrow">
+      <div class="container narrow reveal">
         <h2>Contact</h2>
         <p>The best way to reach me or follow my work:</p>
         <div class="contact-links">
@@ -190,11 +266,118 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year">2026</span> Dr. Mahmoud Desoky</p>
+    <div class="container footer-inner">
+      <p class="footer-name">Dr. Mahmoud Desoky</p>
+      <span class="gold-rule" aria-hidden="true"></span>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/drmahmoudaldesoky" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://orcid.org/0000-0002-1422-0886" target="_blank" rel="noopener">ORCID</a></li>
+      </ul>
+      <p class="footer-copy">&copy; <span id="year">2026</span> Dr. Mahmoud Desoky</p>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="events.js"></script>
+  <script>
+    (function () {
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Sticky nav: solid navy once the page is scrolled
+      var header = document.getElementById('site-header');
+      function onScroll() { header.classList.toggle('scrolled', window.scrollY > 24); }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Mobile menu
+      var toggle = header.querySelector('.nav-toggle');
+      function setMenu(open) {
+        header.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', open);
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      toggle.addEventListener('click', function () { setMenu(!header.classList.contains('menu-open')); });
+      header.querySelectorAll('.nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () { setMenu(false); });
+      });
+
+      // Lectures & Events: built from the data in events.js
+      var data = window.SITE_DATA || { lectures: [], events: [] };
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text) n.textContent = text;
+        return n;
+      }
+      function parseDate(s) {
+        var p = String(s).split('-');
+        return new Date(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
+      }
+      function fmt(d, opts) { return d.toLocaleDateString('en-GB', opts); }
+      function linkBtn(href, label) {
+        var a = el('a', 'item-link', label);
+        a.href = href; a.target = '_blank'; a.rel = 'noopener';
+        return a;
+      }
+      function byDate(dir) {
+        return function (a, b) { return dir * (parseDate(a.date) - parseDate(b.date)); };
+      }
+
+      var talks = document.getElementById('lectures-list');
+      (data.lectures || []).slice().sort(byDate(-1)).forEach(function (t) {
+        var d = parseDate(t.date);
+        var li = el('li', 'talk reveal');
+        var when = el('p', 'talk-date');
+        when.appendChild(el('span', 'talk-month', fmt(d, { month: 'short' })));
+        when.appendChild(el('span', 'talk-year', String(d.getFullYear())));
+        var body = el('div', 'talk-body');
+        body.appendChild(el('h3', 'talk-title', t.title));
+        body.appendChild(el('p', 'talk-meta', [t.event, t.city, fmt(d, { day: 'numeric', month: 'long', year: 'numeric' })].filter(Boolean).join('  ·  ')));
+        li.appendChild(when);
+        li.appendChild(body);
+        if (t.link) li.appendChild(linkBtn(t.link, t.linkLabel || 'Link'));
+        talks.appendChild(li);
+      });
+      if (!talks.children.length) talks.appendChild(el('li', 'empty-note', 'New lectures will be listed here soon.'));
+
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      var events = data.events || [];
+      function renderEvents(list, target, emptyText) {
+        list.forEach(function (e) {
+          var d = parseDate(e.date);
+          var card = el('article', 'event-card reveal');
+          var when = el('div', 'event-date');
+          when.appendChild(el('span', 'event-day', String(d.getDate())));
+          when.appendChild(el('span', 'event-month', fmt(d, { month: 'short', year: 'numeric' })));
+          var body = el('div', 'event-body');
+          body.appendChild(el('p', 'event-where', e.location));
+          body.appendChild(el('h4', 'event-title', e.title));
+          if (e.description) body.appendChild(el('p', 'event-desc', e.description));
+          if (e.registerLink) body.appendChild(linkBtn(e.registerLink, 'Register'));
+          card.appendChild(when);
+          card.appendChild(body);
+          target.appendChild(card);
+        });
+        if (!list.length) target.appendChild(el('p', 'empty-note', emptyText));
+      }
+      renderEvents(events.filter(function (e) { return parseDate(e.date) >= today; }).sort(byDate(1)),
+        document.getElementById('events-upcoming'), 'No upcoming events at the moment.');
+      renderEvents(events.filter(function (e) { return parseDate(e.date) < today; }).sort(byDate(-1)),
+        document.getElementById('events-past'), 'Past events will be listed here.');
+
+      // Fade-in on scroll (skipped when the visitor prefers reduced motion)
+      var items = document.querySelectorAll('.reveal');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
