@@ -616,3 +616,32 @@ p { margin: 0 0 1em; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* Patient education videos */
+.patient-head { margin-top: 3.2em !important; }
+.head-ar { font-family: "Noto Naskh Arabic", var(--serif); padding-left: 12px; border-left: 1px solid var(--line); letter-spacing: 0; text-transform: none; font-size: 1.05rem; color: var(--navy); margin-left: 6px; }
+.patient-intro { color: var(--muted); margin: -0.4em 0 1.6em; }
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; }
+.video-card {
+  display: flex; flex-direction: column; gap: 10px;
+  text-decoration: none; color: var(--navy);
+  background: var(--ivory); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 12px 12px 18px; box-shadow: var(--shadow);
+  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+}
+.video-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); border-color: rgba(201, 164, 92, 0.5); color: var(--navy); }
+.video-thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; border-radius: calc(var(--radius) - 4px); background: var(--navy); }
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.video-card:hover .video-thumb img { transform: scale(1.04); }
+.video-play {
+  position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; transform: translate(-50%, -50%);
+  border-radius: 50%; background: rgba(11, 31, 58, 0.78); border: 1px solid var(--gold);
+}
+.video-play::after {
+  content: ""; position: absolute; left: 21px; top: 16px;
+  border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent var(--gold);
+}
+.video-len { position: absolute; right: 8px; bottom: 8px; background: rgba(11, 31, 58, 0.85); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 2px 7px; border-radius: 3px; }
+.video-title { font-family: "Noto Naskh Arabic", var(--serif); font-size: 1.08rem; font-weight: 600; line-height: 1.6; text-align: right; padding: 0 4px; }
+.video-meta { text-align: right; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); padding: 0 4px; }
+@media (max-width: 600px) { .videos { grid-template-columns: 1fr; } }
