@@ -49,3 +49,8 @@ An event dated today or later shows as upcoming, and moves to past the day after
 
 Open `index.html`, find the "Selected publications" list in the Research section,
 copy one `<li> ... </li>` block, and replace the placeholder text and DOI link.
+
+## Adding a resource
+
+Open `index.html`, find the "MASLD Resources" section, copy one `<article> ... </article>` block,
+and change the label, title, source, short description and link.

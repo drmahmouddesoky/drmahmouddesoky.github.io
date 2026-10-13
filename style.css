@@ -452,6 +452,14 @@ p { margin: 0 0 1em; }
 .event-body .item-link { margin-top: 4px; }
 .empty-note { color: var(--muted); font-style: italic; list-style: none; }
 
+/* Resources */
+.lead-intro { color: var(--muted); max-width: 640px; margin: -0.6em 0 2em; }
+.resource-cards { grid-template-columns: repeat(2, 1fr); }
+.resource-cards .card { display: flex; flex-direction: column; }
+.resource-cards .card .item-link { align-self: flex-start; margin-top: auto; }
+.resource-cards .card p:nth-last-of-type(1) { margin-bottom: 1.4em; }
+.resource-cards h3 { font-size: 1.25rem; }
+
 /* Plain list */
 .list { list-style: none; padding: 0; margin: 0; }
 .list li { position: relative; padding-left: 28px; margin-bottom: 1em; }
