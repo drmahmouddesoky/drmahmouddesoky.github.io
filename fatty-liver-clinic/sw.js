@@ -1,5 +1,5 @@
 /* Fatty Liver Clinic 1.6.0: offline worker. Stores the app's own files; never sends anything. */
-var CACHE = 'flc-1.6.0-41c5dd8449ee';
+var CACHE = 'flc-1.6.0-4d37ecaebca9';
 var FILES = ["./","index.html","manifest.webmanifest","icon-180.png","icon-192.png","icon-512.png","icon-maskable-512.png"];
 self.addEventListener('install', function (e) { e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(FILES); }).then(function () { return self.skipWaiting(); })); });
 self.addEventListener('activate', function (e) {
